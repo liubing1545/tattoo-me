@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}纹我 - 确认账户{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>
+        您好, {{ current_user.username }}!
+    </h1>
+    <h3>您还未激活账户。</h3>
+    <p>
+    我们收到了您在 纹我 的注册申请，请点击链接激活账户：<a href=''>激活</a>
+    </p>
+    <p>
+        您还未收到激活邮件，选择重新发送?
+        <a href="{{ url_for('auth.resend_confirmation') }}">重发</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}纹我 - 登录{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>登录纹我</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+    <br>
+    <p>>忘记密码了? <a href="{{ url_for('auth.password_reset_request') }}">找回</a>.</p>
+    <p>>还没有账户? <a href="{{ url_for('auth.register') }}">注册</a>.</p>
+</div>
+{% endblock %}

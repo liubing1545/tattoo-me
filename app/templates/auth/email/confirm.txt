@@ -1,0 +1,11 @@
+亲爱的 {{ user.username }},
+
+欢迎注册 纹我!
+
+请复制以下链接至浏览器，激活账户:
+
+{{ url_for('auth.confirm', token=token, _external=True) }}
+
+祝您顺利，
+
+纹我团队

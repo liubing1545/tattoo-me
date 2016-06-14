@@ -1,0 +1,7 @@
+<p>亲爱的 {{ user.username }},</p>
+<p>欢迎注册 <b>纹我</b>!</p>
+<p>请点击链接激活账户 <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">激活</a>.</p>
+<p>或者，您可以复制以下链接，用浏览器访问激活:</p>
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+<p>祝您顺利，</p>
+<p>纹我团队</p>
