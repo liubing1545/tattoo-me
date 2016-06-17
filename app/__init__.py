@@ -1,9 +1,9 @@
 from flask import Flask
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.mail import Mail
-from flask.ext.moment import Moment
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.login import LoginManager
+from flask_bootstrap import Bootstrap as Bootstrap
+from flask_mail import Mail as Mail
+from flask_moment import Moment as Moment
+from flask_sqlalchemy import SQLAlchemy as SQLAlchemy
+from flask_login import LoginManager as LoginManager
 #from flask.ext.pagedown import PageDown
 from config import config
 
