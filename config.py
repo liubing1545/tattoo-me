@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -18,6 +19,19 @@ class Config:
     TATTOOME_POSTS_PER_PAGE = 20
     TATTOOME_FOLLOWERS_PER_PAGE = 50
     TATTOOME_COMMENTS_PER_PAGE = 30
+
+    #七牛access-key和secret-key
+    QINIU_ACCESS_KEY = os.environ.get('QINIU_ACCESS_KEY')
+    QINIU_SECRET_KEY = os.environ.get('QINIU_SECRET_KEY')
+
+    #七牛空间名
+    PIC_BUCKET = os.environ.get('PIC_BUCKET')
+    #七牛域名
+    PIC_DOMAIN = os.environ.get('PIC_DOMAIN')
+
+    #网盘存储空间及域名
+    DISK_BUCKET = os.environ.get('DISK_BUCKET')
+    DISK_DOMAIN = os.environ.get('DISK_DOMAIN')
 
     @staticmethod
     def init_app(app):

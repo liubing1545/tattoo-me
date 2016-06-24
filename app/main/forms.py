@@ -19,6 +19,8 @@ class EditProfileForm(Form):
     about_me = TextAreaField('关于我')
     submit = SubmitField('提交')
 
+class ChangeAvatarForm(Form):
+    submit = SubmitField('提交')
 
 class EditProfileAdminForm(Form):
     email = StringField('邮箱', validators=[Required(), Length(1, 64),

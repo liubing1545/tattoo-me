@@ -1,13 +1,13 @@
 from flask import render_template, redirect, url_for, abort, flash, request,\
-    current_app, make_response
+    current_app, make_response, jsonify
 from flask_login import login_required, current_user
 from . import main
 from .forms import EditProfileForm, EditProfileAdminForm, PostForm,\
-    CommentForm
+    CommentForm, ChangeAvatarForm
 from .. import db
 from ..models import Permission, Role, User, Post, Comment
 from ..decorators import admin_required, permission_required
-
+from .upload import get_token
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -45,6 +45,12 @@ def user(username):
     return render_template('user.html', user=user, posts=posts,
                            pagination=pagination)
 
+@main.route('/change-avatar', methods=['GET', 'POST'])
+@login_required
+def change_avatar():
+    form = ChangeAvatarForm()
+    form.avatar_url = current_user.avatar_url
+    return render_template('change_avatar.html', form=form, domain=current_app.config['PIC_DOMAIN'])
 
 @main.route('/edit-profile', methods=['GET', 'POST'])
 @login_required
@@ -60,6 +66,7 @@ def edit_profile():
     form.name.data = current_user.name
     form.location.data = current_user.location
     form.about_me.data = current_user.about_me
+    form.avatar_url = current_user.avatar_url
     return render_template('edit_profile.html', form=form)
 
 
@@ -245,3 +252,8 @@ def moderate_disable(id):
     db.session.add(comment)
     return redirect(url_for('.moderate',
                             page=request.args.get('page', 1, type=int)))
+
+@main.route('/uptoken', methods=['POST', 'GET'])
+def uptoken():
+    token = get_token()
+    return jsonify(uptoken = token)
