@@ -1,2 +1,4 @@
 
-This repository based my O'Reilly book [Flask Web Development](http://www.flaskbook.com).
+This repository based [Flask Web Development](http://www.flaskbook.com).    
+
+Aim to establish a tattoo community.
